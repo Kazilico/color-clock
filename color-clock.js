@@ -24,4 +24,3 @@ var convertTimeframe = function(amount, unit) {
       return 0;
   }
 }
-
