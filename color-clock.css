@@ -4,16 +4,21 @@
 	box-sizing: border-box;
 }
 
-.background {
-	background-color: gray;
+body {
+
+}
+
+.container {
 	height: 100vh;
+	background-color: gray;
 }
 
 .clocky {
 	position: relative;
-	font-family: Papyrus;
+	font-family: PT Mono;
 	color: #FFFFFF;
 	font-size: 50px;
+	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
 	top: 50%;

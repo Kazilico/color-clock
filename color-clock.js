@@ -1,3 +1,21 @@
+var interval = setInterval(function() {
+
+  var currentTime = new Date();
+  $("#clocky").html(currentTime.toLocaleTimeString());
+  
+}, 1000)
+
+
+$("#clocky").on("click", function(){
+
+  console.log("clicked")
+
+})
+
+
+
+
+
 /*
   This function takes in two parameters: a number, and a string.
   The number represents the amount of hours/minutes/seconds.
