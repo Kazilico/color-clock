@@ -10,7 +10,6 @@ body {
 
 .container {
 	height: 100vh;
-	background-color: gray;
 }
 
 .clocky {
@@ -23,4 +22,10 @@ body {
 	margin-right: auto;
 	top: 50%;
 	transform: translateY(-50%);
+	transition: all 10000ms;
+}
+
+.sections.active .clocky {
+
+
 }

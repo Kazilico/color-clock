@@ -3,30 +3,52 @@ var interval = setInterval(function() {
   var currentTime = new Date();
   $("#clocky").html(currentTime.toLocaleTimeString());
   
+  var hours = currentTime.getHours()
+  var rgbHours = convertTimeframe(hours, "hours")
+
+  var minutes = currentTime.getMinutes()
+  var rgbMinutes = convertTimeframe(minutes, "minutes")
+
+  var seconds = currentTime.getSeconds()
+  var rgbSeconds = convertTimeframe(seconds, "seconds")
+
+  var hexHours = parseInt(rgbHours).toString(16)
+    if (hexHours.length === 1) {
+      hexHours = "0" + hexHours
+    }
+  var hexMinutes = parseInt(rgbMinutes).toString(16)
+    if (hexMinutes.length === 1) {
+      hexMinutes = "0" + hexMinutes
+    }    
+  var hexSeconds = parseInt(rgbSeconds).toString(16)
+    if (hexSeconds.length === 1) {
+      hexSeconds = "0" + hexSeconds
+    }
+
+  
+  var hexString = "#" + hexHours + hexMinutes + hexSeconds
+
+  $("#container").css("background", hexString)
+
 }, 1000)
 
 
+
 $("#clocky").on("click", function(){
+
+  var clock = $("#currentTime").val();
+  var hex = $("#hexString").val();
+
+  var hexClock = (clock, hex);
+
+
+
 
   console.log("clicked")
 
 })
 
 
-
-
-
-/*
-  This function takes in two parameters: a number, and a string.
-  The number represents the amount of hours/minutes/seconds.
-  The string represents the unit, and is one of
-    * "hour"
-    * "minute"
-    * "second"
-  It returns a whole number value from 0-255 representing the
-  relative CSS RGB value of that time period.
-  It's pre-written for you. Best to not muck around with it.
-*/
 var convertTimeframe = function(amount, unit) {
 
   switch (unit) {
