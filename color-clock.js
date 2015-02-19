@@ -1,7 +1,6 @@
 var interval = setInterval(function() {
 
   var currentTime = new Date();
-  $("#clocky").html(currentTime.toLocaleTimeString());
   
   var hours = currentTime.getHours()
   var rgbHours = convertTimeframe(hours, "hours")
@@ -28,25 +27,28 @@ var interval = setInterval(function() {
   
   var hexString = "#" + hexHours + hexMinutes + hexSeconds
 
+  $("#clocky").html(currentTime.toLocaleTimeString());
+
+  $("#hexy").html(hexString);
+  
   $("#container").css("background", hexString)
 
 }, 1000)
 
+// Setting up the click event
+$("#clocky").on("click", function(evt){
 
-
-$("#clocky").on("click", function(){
-
-  var clock = $("#currentTime").val();
-  var hex = $("#hexString").val();
-
-  var hexClock = (clock, hex);
-
-
-
-
-  console.log("clicked")
+  $("#clocky").toggle(1000)
+  $("#hexy").toggle(1000)
 
 })
+$("#hexy").on("click", function(evt){
+
+  $("#clocky").toggle(1000)
+  $("#hexy").toggle(1000)
+
+})
+
 
 
 var convertTimeframe = function(amount, unit) {
